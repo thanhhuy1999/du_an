@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" >
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="jquery-2.0.2.min.js"></script>
+        <title>
+            Hệ thống điều khiển và giám sát nhà trồng lan
+        </title>
+    </head>
+    <body>
+        <p id="title1">
+            <img src="./uet.png" />
+            ĐẠI HỌC QUỐC GIA HÀ NỘI <br />
+          TRƯỜNG ĐẠI HỌC CÔNG NGHỆ 
+                  </p>
+                </br></br></br></br></br></br>
+        <div id="tieude">
+            Hệ thống điều khiển và giám sát nhà trồng lan
+        </div>
+
+        <div>
+            <svg id="SVG_Auto" height="100" width="100">
+                <circle id="cir_auto" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                <text fill="#000000" font-size="15" font-family="Verdana" x="35" y="55">Auto</text>
+            </svg>
+
+            <svg id="SVG_Manual" height="100" width="100">
+                <circle id="cir_manual" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                <text fill="#000000" font-size="15" font-family="Verdana" x="26" y="55">Manual</text>
+            </svg>
+
+            <svg id="SVG_Start" height="100" width="100">
+                <circle id="cir_start" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                <text fill="#000000" font-size="15" font-family="Verdana" x="33" y="55">Start</text>
+            </svg>
+
+            <svg id="SVG_Stop" height="100" width="100">
+                <circle id="cir_stop" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                <text fill="#000000" font-size="15" font-family="Verdana" x="33" y="55">Stop</text>
+            </svg>
+
+            <svg id="SVG_GLight" height="100" width="100">
+                <circle id="cir_glight" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                <text fill="#000000" font-size="15" font-family="Verdana" x="25" y="55">G.Light</text>
+            </svg>
+
+            <svg id="SVG_Heating" height="100" width="100">
+                <circle id="cir_heating" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                <text fill="#000000" font-size="15" font-family="Verdana" x="25" y="55">Heating</text>
+            </svg>
+
+            <svg id="SVG_Pump" height="100" width="100">
+                <circle id="cir_pump" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                <text fill="#000000" font-size="15" font-family="Verdana" x="31" y="55">Pump</text>
+            </svg>
+
+            <svg id="SVG_Fan" height="100" width="100">
+                <circle id="cir_fan" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                <text fill="#000000" font-size="15" font-family="Verdana" x="35" y="55">Fan</text>
+            </svg>
+        </div>
+
+        <div id="Btn_Bool">
+            <button id= "Btn_Mode">Mode</button>
+            <button id= "Btn_StartStop">Start/Stop</button>
+            <button id= "Btn_Glight">G.Light</button>
+        </div>
+
+        <div id="Btn_Bool">
+            <button id= "Btn_Heating">Heating</button>
+            <button id= "Btn_Pump">Pump</button>
+            <button id= "Btn_Fan">Fan</button>
+        </div>
+
+        <div id="data">
+            <ul>
+                <li><label id="Nhiet do">Nhiệt độ: </label><b id="temprature"></b> độ C</li>
+                <li><label id ="Do am">Độ ẩm: </label><b id="moitures"></b>%</li>
+            </ul>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.ajaxSetup({ cache: false});
+            setInterval(function() {
+                $.getJSON("IO.html", function(result){
+                    // console.log(result)
+                    $('#temprature').text(result["nhietdo"]);
+                    $('#moitures').text(result["doam"]);
+                    });
+            },1000);
+    });
+    </script>
+
+<script type="text/javascript">
+    var auto;
+    var manual;
+    var start;
+    var stops;
+    var glight;
+    var heating;
+    var pump;
+    var fan;
+        $(document).ready(function(){
+            $.ajaxSetup({ cache: false});
+            setInterval(function() {
+                $.getJSON("IO.html", function(result){
+                    auto = result["stt_auto"];
+                    manual = result["stt_manual"];
+                    start = result["stt_start"];
+                    stops = result["stt_stop"];
+                    glight = result["stt_glight"];
+                    heating = result["stt_heating"];
+                    pump = result["stt_pump"];
+                    fan = result["stt_fan"];
+                    if (auto == 1){
+                        document.getElementById('cir_auto').setAttribute('fill',"#00ff00");
+                    }
+                    else{
+                        document.getElementById('cir_auto').setAttribute('fill',"#ff0000");
+                    }
+
+                    if (manual == 1){
+                        document.getElementById('cir_manual').setAttribute('fill',"#00ff00");
+                    }
+                    else{
+                        document.getElementById('cir_manual').setAttribute('fill',"#ff0000");
+                    }
+
+                    if (start == 1){
+                        document.getElementById('cir_start').setAttribute('fill',"#00ff00");
+                    }
+                    else{
+                        document.getElementById('cir_start').setAttribute('fill',"#ff0000");
+                    }
+
+                    if (stops == 1){
+                        document.getElementById('cir_stop').setAttribute('fill',"#00ff00");
+                    }
+                    else{
+                        document.getElementById('cir_stop').setAttribute('fill',"#ff0000");
+                    }
+
+                    if (glight == 1){
+                        document.getElementById('cir_glight').setAttribute('fill',"#00ff00");
+                    }
+                    else{
+                        document.getElementById('cir_glight').setAttribute('fill',"#ff0000");
+                    }
+                        
+                    if (heating == 1){
+                        document.getElementById('cir_heating').setAttribute('fill',"#00ff00");
+                    }
+                    else{
+                        document.getElementById('cir_heating').setAttribute('fill',"#ff0000");
+                    }
+                       
+                     if (pump == 1){
+                        document.getElementById('cir_pump').setAttribute('fill',"#00ff00");
+                    }
+                    else{
+                        document.getElementById('cir_pump').setAttribute('fill',"#ff0000");
+                    }
+
+                     if (fan == 1){
+                        document.getElementById('cir_fan').setAttribute('fill',"#00ff00");
+                    }
+                    else{
+                        document.getElementById('cir_fan').setAttribute('fill',"#ff0000");
+                    }
+
+                    });
+            },1000);
+    });
+
+    //      $("#Btn_Start").click(function(){
+    //     if(start==1){
+    //         ulr = 'IO.html';
+    //         name = '"HMI_auto"';
+    //         sdata = escape(name)+'='+0;
+    //         $.post(ulr, sdata, function(result2){});
+    //     }
+    //     else{
+    //         ulr = 'IO.html';
+    //         name = '"HMI_auto"';
+    //         sdata = escape(name)+'='+1;
+    //         $.post(ulr, sdata, function(result2){});
+    //     }
+    // });
+
+    $("#Btn_Mode").click(function(){    
+       
+            ulr = 'IO.html';
+            name = '"hmi_automanual"';
+            sdata = escape(name)+'='+1;
+            $.post(ulr, sdata, function(result2){});
+            setTimeout( () => {
+         sdata = escape(name)+'='+0;
+         $.post(ulr, sdata, function(result2){});
+  },
+         1 * 1
+);
+    });
+
+    $("#Btn_StartStop").click(function(){
+       
+       ulr = 'IO.html';
+       name = '"HMI_stop"';
+       sdata = escape(name)+'='+1;
+       $.post(ulr, sdata, function(result2){});
+       setTimeout( () => {
+    sdata = escape(name)+'='+0;
+    $.post(ulr, sdata, function(result2){});
+},
+    1 * 5
+);
+});
+
+$("#Btn_Glight").click(function(){
+       
+       ulr = 'IO.html';
+       name = '"hmi_nutnhandenstr"';
+       sdata = escape(name)+'='+1;
+       $.post(ulr, sdata, function(result2){});
+       setTimeout( () => {
+    sdata = escape(name)+'='+0;
+    $.post(ulr, sdata, function(result2){});
+},
+    1 * 5
+);
+});
+
+$("#Btn_Heating").click(function(){
+       
+       ulr = 'IO.html';
+       name = '"HMI_Iden"';
+       sdata = escape(name)+'='+1;
+       $.post(ulr, sdata, function(result2){});
+       setTimeout( () => {
+    sdata = escape(name)+'='+0;
+    $.post(ulr, sdata, function(result2){});
+},
+    1 * 5
+);
+});
+
+$("#Btn_Pump").click(function(){
+       
+       ulr = 'IO.html';
+       name = '"HMI_Ibom"';
+       sdata = escape(name)+'='+1;
+       $.post(ulr, sdata, function(result2){});
+       setTimeout( () => {
+    sdata = escape(name)+'='+0;
+    $.post(ulr, sdata, function(result2){});
+},
+    1 * 5
+);
+});
+
+$("#Btn_Fan").click(function(){
+       
+       ulr = 'IO.html';
+       name = '"HMI_Iquat"';
+       sdata = escape(name)+'='+1;
+       $.post(ulr, sdata, function(result2){});
+       setTimeout( () => {
+    sdata = escape(name)+'='+0;
+    $.post(ulr, sdata, function(result2){});
+},
+    1 * 50
+);
+});
+
+    // $("#Btn_Stop").click(function(){
+    //     if(stops==1){
+    //         ulr = 'IO.html';
+    //         name = '"HMI_stop"';
+    //         sdata = escape(name)+'='+0;
+    //         $.post(ulr, sdata, function(result2){});
+    //     }
+    //     else{
+    //         ulr = 'IO.html';
+    //         name = '"HMI_stop"';
+    //         sdata = escape(name)+'='+1;
+    //         $.post(ulr, sdata, function(result2){});
+    //     }
+    // });
+
+   
+
+    // $("#Btn_Light").click(function(){
+    //     if(light==1){
+    //         ulr = 'IO.html';
+    //         name = '"HMI_Iden"';
+    //         sdata = escape(name)+'='+0;
+    //         $.post(ulr, sdata, function(result2){});
+    //     }
+    //     else{
+    //         ulr = 'IO.html';
+    //         name = '"HMI_Iden"';
+    //         sdata = escape(name)+'='+1;
+    //         $.post(ulr, sdata, function(result2){});
+    //     }
+    // });
+
+    // $("#Btn_Pump").click(function(){
+    //     if(pumb==1){
+    //         ulr = 'IO.html';
+    //         name = '"HMI_Ibom"';
+    //         sdata = escape(name)+'='+0;
+    //         $.post(ulr, sdata, function(result2){});
+    //     }
+    //     else{
+    //         ulr = 'IO.html';
+    //         name = '"HMI_Ibom"';
+    //         sdata = escape(name)+'='+1;
+    //         $.post(ulr, sdata, function(result2){});
+    //     }
+    // });
+
+    // $("#Btn_Fan").click(function(){
+    //     if(fan==1){
+    //         ulr = 'IO.html';
+    //         name = '"HMI_Iquat"';
+    //         sdata = escape(name)+'='+0;
+    //         $.post(ulr, sdata, function(result2){});
+    //     }
+    //     else{
+    //         ulr = 'IO.html';
+    //         name = '"HMI_Iquat"';
+    //         sdata = escape(name)+'='+1;
+    //         $.post(ulr, sdata, function(result2){});
+    //     }
+    // });
+    // $(document).ready(function(){
+    // });
+
+</script>
+
+</html>

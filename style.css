@@ -1,0 +1,91 @@
+#body
+{
+    width: 100%;
+}
+#tieude{
+    font-size: 30px;
+    color: blue;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+#data{
+    font-size: 30px;
+    color: rgb(243, 3, 3);
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+#title1
+{
+    border: 1px solid black;
+    width: 800px;
+    height: 90px;
+    text-align: center;
+    color: blue;
+    font-size: 25px;
+    position: absolute;
+    left: 290px;
+    top: 10px;
+    float: left;
+}
+img {
+    max-width:200px;
+    max-height:80px;
+    width: auto;
+    height: auto;
+    float: left;
+}
+
+#Btn_Bool{
+    margin-left: 40px;
+    margin-top: 80px;
+}
+#Btn_Bool button{
+    margin-left: 50px;
+    width: 100px;
+    height: 80px;
+}
+#SVG_Auto{
+    position: absolute;
+    margin-left: 650px;
+    margin-top: 74px;
+}
+#SVG_Manual{
+    position: absolute;
+    margin-left: 800px;
+    margin-top: 74px;
+}
+#SVG_Start{
+    position: absolute;
+    margin-left: 950px;
+    margin-top: 74px;
+}
+#SVG_Stop{
+    position: absolute;
+    margin-left: 1100px;
+    margin-top: 74px;
+}
+#SVG_GLight{
+    position: absolute;
+    margin-left: 650px;
+    margin-top: 234px;
+}
+#SVG_Heating{
+    position: absolute;
+    margin-left: 800px;
+    margin-top: 234px;
+}
+#SVG_Pump{
+    position: absolute;
+    margin-left: 950px;
+    margin-top: 234px;
+}
+#SVG_Fan{
+    position: absolute;
+    margin-left: 1100px;
+    margin-top: 234px;
+}
+#Btn_Mode, #Btn_StartStop, #Btn_Glight, #Btn_Heating,#Btn_Pump,#Btn_Fan{
+    width: 860px;
+}
