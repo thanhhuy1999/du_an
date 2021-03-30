@@ -9,6 +9,9 @@
         </title>
     </head>
     <body>
+
+        <!-- title va gioi thieu co ban -->
+
         <p id="title1">
             <img src="./uet.png" />
             ĐẠI HỌC QUỐC GIA HÀ NỘI <br />
@@ -19,59 +22,87 @@
             Hệ thống điều khiển và giám sát nhà trồng lan
         </div>
 
-        <div>
-            <svg id="SVG_Auto" height="100" width="100">
-                <circle id="cir_auto" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
-                <text fill="#000000" font-size="15" font-family="Verdana" x="35" y="55">Auto</text>
-            </svg>
+        <!-- bang dieu khien -->
 
-            <svg id="SVG_Manual" height="100" width="100">
-                <circle id="cir_manual" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
-                <text fill="#000000" font-size="15" font-family="Verdana" x="26" y="55">Manual</text>
-            </svg>
+        <div class="grid-container">
+             <div class="grid-item item-columns">
+                <div class="grid-container-controls ">        
+                    <div class="grid-item">
+                        <button id= "Btn_Mode">Mode</button>
+                    </div>
+                    <div class="grid-item">
+                        <button id= "Btn_StartStop">Start/Stop</button>
+                    </div>
+                    <div class="grid-item">
+                        <button id= "Btn_Glight">G.Light</button>
+                    </div>
+                    <div class="grid-item">
+                        <button id= "Btn_Heating">Heating</button>
+                    </div>
+                    <div class="grid-item">
+                        <button id= "Btn_Pump">Pump</button>
+                    </div>
+                    <div class="grid-item">
+                        <button id= "Btn_Fan">Fan</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item item-columns">
+                <div class="grid-container-mode">
+                    <div class="grid-item">
+                        <svg id="SVG_Auto" height="100" width="100">
+                            <circle id="cir_auto" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                            <text fill="#000000" font-size="15" font-family="Verdana" x="35" y="55">Auto</text>
+                        </svg>
+                    </div>
+                    <div class="grid-item">
+                        <svg id="SVG_Manual" height="100" width="100">
+                            <circle id="cir_manual" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                            <text fill="#000000" font-size="15" font-family="Verdana" x="26" y="55">Manual</text>
+                        </svg>
+                    </div>
+                    <div class="grid-item">
+                        <svg id="SVG_Start" height="100" width="100">
+                            <circle id="cir_start" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                            <text fill="#000000" font-size="15" font-family="Verdana" x="33" y="55">Start</text>
+                        </svg>
+                    </div>
+                    <div class="grid-item">
+                        <svg id="SVG_Stop" height="100" width="100">
+                            <circle id="cir_stop" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                            <text fill="#000000" font-size="15" font-family="Verdana" x="33" y="55">Stop</text>
+                        </svg>
+                    </div>
+                    <div class="grid-item">
+                        <svg id="SVG_GLight" height="100" width="100">
+                            <circle id="cir_glight" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                            <text fill="#000000" font-size="15" font-family="Verdana" x="25" y="55">G.Light</text>
+                        </svg>
+                    </div>
+                    <div class="grid-item">
+                        <svg id="SVG_Heating" height="100" width="100">
+                            <circle id="cir_heating" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                            <text fill="#000000" font-size="15" font-family="Verdana" x="25" y="55">Heating</text>
+                        </svg>
+                    </div>
+                    <div class="grid-item">
+                        <svg id="SVG_Pump" height="100" width="100">
+                            <circle id="cir_pump" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                            <text fill="#000000" font-size="15" font-family="Verdana" x="31" y="55">Pump</text>
+                        </svg>
+                    </div>
+                    <div class="grid-item">
+                        <svg id="SVG_Fan" height="100" width="100">
+                            <circle id="cir_fan" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+                            <text fill="#000000" font-size="15" font-family="Verdana" x="35" y="55">Fan</text>
+                        </svg>
+                    </div>                    
+                </div>
+            </div>
+        </div>        
 
-            <svg id="SVG_Start" height="100" width="100">
-                <circle id="cir_start" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
-                <text fill="#000000" font-size="15" font-family="Verdana" x="33" y="55">Start</text>
-            </svg>
 
-            <svg id="SVG_Stop" height="100" width="100">
-                <circle id="cir_stop" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
-                <text fill="#000000" font-size="15" font-family="Verdana" x="33" y="55">Stop</text>
-            </svg>
-
-            <svg id="SVG_GLight" height="100" width="100">
-                <circle id="cir_glight" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
-                <text fill="#000000" font-size="15" font-family="Verdana" x="25" y="55">G.Light</text>
-            </svg>
-
-            <svg id="SVG_Heating" height="100" width="100">
-                <circle id="cir_heating" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
-                <text fill="#000000" font-size="15" font-family="Verdana" x="25" y="55">Heating</text>
-            </svg>
-
-            <svg id="SVG_Pump" height="100" width="100">
-                <circle id="cir_pump" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
-                <text fill="#000000" font-size="15" font-family="Verdana" x="31" y="55">Pump</text>
-            </svg>
-
-            <svg id="SVG_Fan" height="100" width="100">
-                <circle id="cir_fan" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
-                <text fill="#000000" font-size="15" font-family="Verdana" x="35" y="55">Fan</text>
-            </svg>
-        </div>
-
-        <div id="Btn_Bool">
-            <button id= "Btn_Mode">Mode</button>
-            <button id= "Btn_StartStop">Start/Stop</button>
-            <button id= "Btn_Glight">G.Light</button>
-        </div>
-
-        <div id="Btn_Bool">
-            <button id= "Btn_Heating">Heating</button>
-            <button id= "Btn_Pump">Pump</button>
-            <button id= "Btn_Fan">Fan</button>
-        </div>
+        <!-- data hien thi -->
 
         <div id="data">
             <ul>
